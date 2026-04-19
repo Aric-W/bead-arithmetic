@@ -1,6 +1,6 @@
 name = "Nameless Wood"
 
-packages = ["matplotlib.pyplot","matplotlib.patches"]
+packages = ["matplotlib"]
 
 # Install packages to be used in this project
 # packages = ["pandas"]
