@@ -1,17 +1,7 @@
-name = "Nameless Wood"
 
-packages = ["matplotlib"]
 
-# Install packages to be used in this project
-# packages = ["pandas"]
+#packages = ["matplotlib"]
 
-# Bundle your project into a zip file which can be downloaded or used
-# as a module in your Anaconda Toolbox Excel Add-in
-# export = true
-
-# Fetch arbitrary content from URLs onto the virtual filesystem, just map a valid
-# URL to a destination in the filesystem path
-# [files]
 # "https://example.com/data.csv" = "./data.csv"
 
 # Import JavaScript modules in your project (load them in the main thread of the browser)
