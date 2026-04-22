@@ -230,6 +230,9 @@
             return v1, v2
         #division will have current_data be dub[0] 
         #and book will be ac.flipBook(dub[0])
+        #actually I think I need to add something 
+        #to asciiConverter1 to ignore
+        #sublists with $ at index 0
         def process_result(dub, op_char):
             global current_data, current_index, is_playing
             is_playing = False

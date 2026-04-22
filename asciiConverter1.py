@@ -86,6 +86,8 @@ def flipBook(list, nM = False):
     states = []
 
     for c in list:
+        if c[0] == "$":
+            continue
         states.append(display(c, nM))
 
     return states
