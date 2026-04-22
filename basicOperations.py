@@ -52,6 +52,7 @@ def get_inputs():
 #and so be indexed differently?
 #I should move this code into it's own file
 #and put the nigel cheese stuff into my essay.
+#division will have one math button but the same control buttons.
 def process_result(dub, op_char):
     global current_data, current_index, is_playing
     is_playing = False
