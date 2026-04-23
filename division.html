@@ -86,7 +86,9 @@
         }
 
         /* Scroll Area & ASCII Container */
-        /*nb-scroll is for images ab-scroll is for text*/
+        /*nb-scroll is for images ab-scroll is for text
+        this scroll area is for text*/
+
         .scroll-area {
             border: 1px solid #ccc;
             height: 250px;
@@ -98,12 +100,19 @@
             justify-content: center;
             padding: 10px;
         }
-
+        /*for text*/
         .scroll-container {
             font-family: "Courier New", Courier, monospace;
             font-size: 15px;
             text-align: center;
             white-space: pre;
+        }
+        .scroll-container img {
+            height: 200px;
+            width: auto;
+            /*margin-right: 10px;*/
+            /*border-radius: 8px;*/
+            display: inline-block;
         }
 
         /* Labels */
@@ -154,8 +163,7 @@
             <div id="ab_scroll_container" class="scroll-container"></div>
         </div>
 
-        <div class="scroll-area">
-            <div id="nb_scroll_container" class="scroll-container"></div>
+        <div id="nb_scroll_container" class="scroll-area">
         </div>
 
 
