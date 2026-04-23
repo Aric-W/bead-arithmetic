@@ -7,7 +7,9 @@ import integerDataModel as m
 
 # State variables
 current_index = 0
+#page
 current_data = []
+#book
 is_playing = False
 
 def checkInput(inp):
@@ -27,11 +29,14 @@ def enable_controls():
     document.getElementById("stop_button").disabled = False
 #def update_ab_display, and def update_nb_display for division
 '''update_ab_display():
-    if current_data:
-        document.getElementById("ab_scroll_container").innerText = book[current_index]
+    if book:
+        document.getElementById("ab_scroll_container").innerText = book[page]
     update_nB_display():
     if current_data:
-        document.getElementById("nb_scroll_container").innerText = current_data[current_index]'''
+        document.getElementById("nb_scroll_container").innerText = current_data[current_index]
+      no, updating nB_display will change an image in the container
+       maybe nb_display_area and nb_display_container needs its own class
+        since nb scroll displays images while ab scroll displays text '''
 def update_display():
     if current_data:
         document.getElementById("scroll_container").innerText = current_data[current_index]
@@ -141,7 +146,7 @@ def stop_click(event):
     global is_playing
     is_playing = False
 #for division: if current_data[current_index][0] == '$'
-#then
+#then increment current_index and run update_nb_display
 @when("click", "#next_button")
 def next_click(event):
     global current_index
