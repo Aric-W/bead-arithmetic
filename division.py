@@ -47,8 +47,21 @@ def update_nb_display():
     
     document.getElementById("nb_scroll_container").innerHTML = ''
 
+    
+    indicIm = document.createElement('img')
+    if current_index == 0:
+        indicIm.src =f"./assets/{current_data[current_index+1][2]}d.png"
+    else:
+        indicIm.src =f"./assets/{current_data[current_index][2]}d.png"
+    indicIm.alt = "indicator"
+    document.getElementById("nb_scroll_container").appendChild(indicIm)
+    baseIm = document.createElement('img')
+    baseIm.src ="./assets/b.png"
+    baseIm.alt = "base"
+    document.getElementById("nb_scroll_container").appendChild(baseIm)
     for i in range(0, len(val2)):
                 img = document.createElement('img')
+                
                 # Fixed the URL template string from your snippet
                     
                 img.src =f"./assets/{val2[i]}c.png"
@@ -82,14 +95,16 @@ def process_result(dub, op_char):
     page = 0
     
     current_data = dub[2]
+    #window.alert(current_data)
     current_index = 0
     val1 = document.getElementById("input_field1").value
     val2 = document.getElementById("input_field2").value
     
     document.getElementById("output_label").innerText = f"{val1} {op_char} {val2} = {dub[1]}"
-    document.getElementById("rods_label").innerText = f"rods: {len(dub[2][0])}"
-    
+    #document.getElementById("rods_label").innerText = f"rods: {len(dub[2][0])}"
+    document.getElementById("rods_label").innerText = f"rods: {current_data}"
     update_ab_display()
+    
     update_nb_display()
     enable_controls()
 
@@ -112,10 +127,24 @@ async def play_frames():
     document.getElementById("next_button").disabled = True
     document.getElementById("play_button").disabled = True
     
-    while is_playing and page < len(book) - 1:
+    while is_playing and page < len(book) - 1 and current_index < len(current_data) - 1:
         
-        page += 1
-        update_ab_display()
+        
+        
+        if current_data[current_index][0] == "$":
+            
+            update_nb_display()
+            current_index += 1
+            
+            #window.alert(current_index)
+            
+        else:
+            current_index += 1
+            page += 1
+            update_ab_display()
+            
+
+
         await asyncio.sleep(0.3)
         
     is_playing = False
@@ -123,7 +152,7 @@ async def play_frames():
 
 @when("click", "#play_button")
 def play_click(event):
-    if not is_playing and book:
+    if not is_playing and book and current_data:
         asyncio.ensure_future(play_frames())
 
 @when("click", "#stop_button")
@@ -149,10 +178,12 @@ def prev_click(event):
 
 @when("click", "#clear_button")
 def clear_click(event):
-    global current_index, page, book, is_playing
+    global current_index, page, book, is_playing, current_data
     is_playing = False
-    if book:
+    if book and current_data:
         page = 0
+        current_index = 0
+        update_nb_display()
         update_ab_display()
 
 @when("click", "#btn_back")
