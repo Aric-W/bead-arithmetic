@@ -127,7 +127,7 @@ async def play_frames():
     document.getElementById("next_button").disabled = True
     document.getElementById("play_button").disabled = True
     
-    while is_playing and page < len(book) - 1 and current_index < len(current_data) - 1:
+    while is_playing and  current_index < len(current_data):
         
         
         
