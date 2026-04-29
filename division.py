@@ -225,6 +225,7 @@ async def play_frames():
         # Check if the inner list actually has items before checking index [0]
         if len(current_data[current_index]) > 0 and current_data[current_index][0] == "$":
             update_nb_display()
+            update_soFar()
             current_index += 1
             
         else:
