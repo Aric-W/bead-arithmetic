@@ -321,54 +321,7 @@ def stop_click(event):
 #we will increment both page and current_index
 #@when("click", "#next_button")
 #def next_click(event):
-    '''global current_index, book, page
-    
-    # Safety Check: Don't exceed the data length
-    if not current_data or current_index >= len(current_data) - 1:
-        current_index = 0
-        
-    if len(current_data[current_index]) > 0 and current_data[current_index][0] == "$":
-        current_index += 1
-        update_nb_display()
-        update_soFar()
-    else:
-        current_index += 1
-        if page == len(book) - 1:
-            page = 0
-        if page < len(book) - 1:
-            page += 1
-        update_ab_display()'''
-    '''global current_index, page
-   # window.alert(current_data)
-    # 1. Safety Check: Don't do anything if we are already at the beginning
-    if current_index >= len(current_data)-1:
-        #return
-        current_index = 0
-        
-    # 2. Safety Check: Ensure data actually exists
-    if not current_data or not book:
-        return
 
-    # 3. REWIND FIRST! 
-    # Step back so we don't check an out-of-bounds index
-    window.alert(f"{current_data} {current_index}")
-    current_index += 1
-
-    # 4. Now look at the frame we just stepped back onto
-    if len(current_data[current_index]) <= len(current_data) and current_data[current_index][0] == "$":
-        # It's a bead mode frame, update the bead display
-        update_nb_display()
-        update_soFar()
-         
-        
-    else:
-        if page >= len(book):
-            page = 0
-        # It's a normal math frame, decrement page and update abacus display
-        if page < len(book):
-            page += 1
-        update_ab_display()'''
-    
 @when("click", "#next_button")
 def next_click(event):
     global current_index, page
