@@ -172,6 +172,9 @@ def process_result(dub, op_char):
 @when("click", "#process_button")
 def div(event):
     v1, v2 = get_inputs()
+    if v2 == "0":
+        window.alert("divide by 0 error.")
+        return
     if v1: process_result(m.division(v1, v2), "÷")
 
 
